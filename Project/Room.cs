@@ -8,6 +8,7 @@ namespace CastleGrimtol.Project
     public string Description { get; set; }
     public List<Item> Items { get; set; }
     public Dictionary<string, IRoom> Exits { get; set; }
+    public bool Visited { get; set; }
 
     public Room LeaveRoom(string direction)
     {
@@ -30,7 +31,7 @@ namespace CastleGrimtol.Project
     {
       if (Items.Count == 0)
       {
-        System.Console.WriteLine("You do not see any items of interest in this room");
+        System.Console.WriteLine("You do not see any other items of interest in this room");
       }
       else
       {
@@ -48,6 +49,7 @@ namespace CastleGrimtol.Project
       Description = description;
       Items = new List<Item>();
       Exits = new Dictionary<string, IRoom>();
+      Visited = false;
     }
   }
 }
