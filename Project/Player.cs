@@ -6,6 +6,8 @@ namespace CastleGrimtol.Project
   {
     public string PlayerName { get; set; }
     public List<Item> Inventory { get; set; }
+    public bool UniformOn { get; set; }
+    public bool Dead { get; set; }
 
 
     public void PrintInventory()

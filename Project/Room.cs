@@ -10,13 +10,22 @@ namespace CastleGrimtol.Project
     public Dictionary<string, IRoom> Exits { get; set; }
     public bool Visited { get; set; }
 
+    public bool DoorLocked { get; set; }
+
     public Room LeaveRoom(string direction)
     {
-      if (this.Exits.ContainsKey(direction))
+      if (!this.Exits.ContainsKey(direction))
       {
-        return (Room)this.Exits[direction];
+        System.Console.WriteLine("\nOUCH - you walked into a wall clumsy knight!");
+        return this;
       }
-      return null;
+      Room newRoom = (Room)this.Exits[direction];
+      if (newRoom.DoorLocked)
+      {
+        System.Console.WriteLine("\nThe door is locked!");
+        return this;
+      }
+      return newRoom;
     }
 
     public Item TakeItem(string name)
@@ -43,13 +52,14 @@ namespace CastleGrimtol.Project
       }
     }
 
-    public Room(string name, string description)
+    public Room(string name, string description, bool doorlocked = false)
     {
       Name = name;
       Description = description;
       Items = new List<Item>();
       Exits = new Dictionary<string, IRoom>();
       Visited = false;
+      DoorLocked = doorlocked;
     }
   }
 }
