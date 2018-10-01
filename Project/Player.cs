@@ -14,11 +14,11 @@ namespace CastleGrimtol.Project
     {
       if (Inventory.Count == 0)
       {
-        System.Console.WriteLine("\nYour inventory is empty!");
+        System.Console.WriteLine("\n Your inventory is empty!");
       }
       else
       {
-        System.Console.WriteLine("\nYOUR CURRENT INVENTORY:");
+        System.Console.WriteLine("\n YOUR CURRENT INVENTORY:");
         Inventory.ForEach(item =>
         {
           System.Console.WriteLine($"\t{item.Name}");

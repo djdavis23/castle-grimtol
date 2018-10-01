@@ -16,13 +16,13 @@ namespace CastleGrimtol.Project
     {
       if (!this.Exits.ContainsKey(direction))
       {
-        System.Console.WriteLine("\nOUCH - you walked into a wall clumsy knight!");
+        System.Console.WriteLine("\n OUCH - you walked into a wall clumsy knight!");
         return this;
       }
       Room newRoom = (Room)this.Exits[direction];
       if (newRoom.DoorLocked)
       {
-        System.Console.WriteLine("\nThe door is locked!");
+        System.Console.WriteLine("\n The door is locked!");
         return this;
       }
       return newRoom;
@@ -40,11 +40,11 @@ namespace CastleGrimtol.Project
     {
       if (Items.Count == 0)
       {
-        System.Console.WriteLine("You do not see any other items of interest in this room");
+        System.Console.WriteLine("\n You do not see any other items of interest in this room");
       }
       else
       {
-        System.Console.WriteLine("You note the following items of interest in the room:");
+        System.Console.WriteLine("\n You note the following items of interest in the room:");
         Items.ForEach(item =>
         {
           System.Console.WriteLine($"\t{item.Name} -- {item.Description}");
